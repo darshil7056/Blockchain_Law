@@ -1,0 +1,58 @@
+---
+OrdererOrgs:
+  - Name: auto.com
+    Domain: auto.com
+    Specs:
+      - Hostname: orderer1
+        SANS:
+          - 192.168.8.120
+      - Hostname: orderer2
+        SANS:
+          - 192.168.8.120
+      - Hostname: orderer3
+        SANS:
+          - 192.168.8.120
+
+PeerOrgs:
+  - Name: citizen.auto.com
+    Domain: citizen.auto.com
+    EnableNodeOUs: true
+    CA:
+      Hostname: ca1
+      CommonName: ca1.citizen.auto.com
+      Country: US
+      Province: North Carolina
+      Locality: Raleigh
+    Specs:
+      - Hostname: peer1
+        CommonName: peer1.citizen.auto.com
+        SANS:
+          - 192.168.8.120
+  - Name: lawyer.auto.com
+    Domain: lawyer.auto.com
+    EnableNodeOUs: true
+    CA:
+      Hostname: ca1
+      CommonName: ca1.lawyer.auto.com
+      Country: US
+      Province: North Carolina
+      Locality: Raleigh
+    Specs:
+      - Hostname: peer1
+        CommonName: peer1.lawyer.auto.com
+        SANS:
+          - 192.168.8.120
+  - Name: police.auto.com
+    Domain: police.auto.com
+    EnableNodeOUs: true
+    CA:
+      Hostname: ca1
+      CommonName: ca1.police.auto.com
+      Country: US
+      Province: North Carolina
+      Locality: Raleigh
+    Specs:
+      - Hostname: peer1
+        CommonName: peer1.police.auto.com
+        SANS:
+          - 192.168.8.120

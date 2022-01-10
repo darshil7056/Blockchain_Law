@@ -1,0 +1,128 @@
+{
+  "Admin@auto.com": {
+    "key": "Admin@auto.com",
+    "org": "auto.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/auto.com/users/Admin@auto.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/auto.com/users/Admin@auto.com/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "Admin@citizen.auto.com": {
+    "key": "Admin@citizen.auto.com",
+    "org": "citizen.auto.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/citizen.auto.com/users/Admin@citizen.auto.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/citizen.auto.com/users/Admin@citizen.auto.com/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "Admin@lawyer.auto.com": {
+    "key": "Admin@lawyer.auto.com",
+    "org": "lawyer.auto.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/lawyer.auto.com/users/Admin@lawyer.auto.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/lawyer.auto.com/users/Admin@lawyer.auto.com/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "Admin@police.auto.com": {
+    "key": "Admin@police.auto.com",
+    "org": "police.auto.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/police.auto.com/users/Admin@police.auto.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/police.auto.com/users/Admin@police.auto.com/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "auto.com": {
+    "key": "auto.com",
+    "org": "auto.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/auto.com/ca/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/auto.com/ca/priv_sk",
+    "type": "ca"
+  },
+  "auto.com.tlsca": {
+    "key": "auto.com",
+    "org": "auto.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/auto.com/tlsca/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/auto.com/tlsca/priv_sk",
+    "type": "tlsca"
+  },
+  "citizen.auto.com": {
+    "key": "citizen.auto.com",
+    "org": "citizen.auto.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/citizen.auto.com/ca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/citizen.auto.com/ca/priv_sk",
+    "type": "ca"
+  },
+  "citizen.auto.com.tlsca": {
+    "key": "citizen.auto.com",
+    "org": "citizen.auto.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/citizen.auto.com/tlsca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/citizen.auto.com/tlsca/priv_sk",
+    "type": "tlsca"
+  },
+  "lawyer.auto.com": {
+    "key": "lawyer.auto.com",
+    "org": "lawyer.auto.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/lawyer.auto.com/ca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/lawyer.auto.com/ca/priv_sk",
+    "type": "ca"
+  },
+  "lawyer.auto.com.tlsca": {
+    "key": "lawyer.auto.com",
+    "org": "lawyer.auto.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/lawyer.auto.com/tlsca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/lawyer.auto.com/tlsca/priv_sk",
+    "type": "tlsca"
+  },
+  "orderer1.auto.com": {
+    "key": "orderer1.auto.com",
+    "org": "auto.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/auto.com/orderers/orderer1.auto.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/auto.com/orderers/orderer1.auto.com/msp/keystore/priv_sk",
+    "type": "orderers"
+  },
+  "orderer2.auto.com": {
+    "key": "orderer2.auto.com",
+    "org": "auto.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/auto.com/orderers/orderer2.auto.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/auto.com/orderers/orderer2.auto.com/msp/keystore/priv_sk",
+    "type": "orderers"
+  },
+  "orderer3.auto.com": {
+    "key": "orderer3.auto.com",
+    "org": "auto.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/auto.com/orderers/orderer3.auto.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/auto.com/orderers/orderer3.auto.com/msp/keystore/priv_sk",
+    "type": "orderers"
+  },
+  "peer1.citizen.auto.com": {
+    "key": "peer1.citizen.auto.com",
+    "org": "citizen.auto.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/citizen.auto.com/peers/peer1.citizen.auto.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/citizen.auto.com/peers/peer1.citizen.auto.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer1.lawyer.auto.com": {
+    "key": "peer1.lawyer.auto.com",
+    "org": "lawyer.auto.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/lawyer.auto.com/peers/peer1.lawyer.auto.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/lawyer.auto.com/peers/peer1.lawyer.auto.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer1.police.auto.com": {
+    "key": "peer1.police.auto.com",
+    "org": "police.auto.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/police.auto.com/peers/peer1.police.auto.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/police.auto.com/peers/peer1.police.auto.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "police.auto.com": {
+    "key": "police.auto.com",
+    "org": "police.auto.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/police.auto.com/ca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/police.auto.com/ca/priv_sk",
+    "type": "ca"
+  },
+  "police.auto.com.tlsca": {
+    "key": "police.auto.com",
+    "org": "police.auto.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/police.auto.com/tlsca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/police.auto.com/tlsca/priv_sk",
+    "type": "tlsca"
+  }
+}

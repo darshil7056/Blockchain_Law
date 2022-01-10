@@ -1,0 +1,203 @@
+---
+Organizations:
+  - &auto-com
+      Name: auto-com
+      ID: auto-com
+      MSPDir: keyfiles/ordererOrganizations/auto.com/msp
+      Policies:
+        Readers:
+          Type: Signature
+          Rule: "OR('auto-com.member')"
+        Writers:
+          Type: Signature
+          Rule: "OR('auto-com.member')"
+        Admins:
+          Type: Signature
+          Rule: "OR('auto-com.admin')"
+  - &citizen-auto-com
+      Name: citizen-auto-com
+      ID: citizen-auto-com
+      MSPDir: keyfiles/peerOrganizations/citizen.auto.com/msp
+      Policies:
+        Readers:
+          Type: Signature
+          Rule: "OR('citizen-auto-com.admin', 'citizen-auto-com.peer', 'citizen-auto-com.client')"
+        Writers:
+          Type: Signature
+          Rule: "OR('citizen-auto-com.admin', 'citizen-auto-com.client')"
+        Admins:
+          Type: Signature
+          Rule: "OR('citizen-auto-com.admin')"
+        Endorsement:
+          Type: Signature
+          Rule: "OR('citizen-auto-com.peer')"
+
+      AnchorPeers:
+      - Host: 192.168.8.120
+        Port: 7004
+  - &lawyer-auto-com
+      Name: lawyer-auto-com
+      ID: lawyer-auto-com
+      MSPDir: keyfiles/peerOrganizations/lawyer.auto.com/msp
+      Policies:
+        Readers:
+          Type: Signature
+          Rule: "OR('lawyer-auto-com.admin', 'lawyer-auto-com.peer', 'lawyer-auto-com.client')"
+        Writers:
+          Type: Signature
+          Rule: "OR('lawyer-auto-com.admin', 'lawyer-auto-com.client')"
+        Admins:
+          Type: Signature
+          Rule: "OR('lawyer-auto-com.admin')"
+        Endorsement:
+          Type: Signature
+          Rule: "OR('lawyer-auto-com.peer')"
+
+      AnchorPeers:
+      - Host: 192.168.8.120
+        Port: 7005
+  - &police-auto-com
+      Name: police-auto-com
+      ID: police-auto-com
+      MSPDir: keyfiles/peerOrganizations/police.auto.com/msp
+      Policies:
+        Readers:
+          Type: Signature
+          Rule: "OR('police-auto-com.admin', 'police-auto-com.peer', 'police-auto-com.client')"
+        Writers:
+          Type: Signature
+          Rule: "OR('police-auto-com.admin', 'police-auto-com.client')"
+        Admins:
+          Type: Signature
+          Rule: "OR('police-auto-com.admin')"
+        Endorsement:
+          Type: Signature
+          Rule: "OR('police-auto-com.peer')"
+
+      AnchorPeers:
+      - Host: 192.168.8.120
+        Port: 7003
+
+Capabilities:
+  Channel: &ChannelCapabilities
+    V2_0: true
+
+  Orderer: &OrdererCapabilities
+    V2_0: true
+
+  Application: &ApplicationCapabilities
+    V2_0: true
+
+Application: &ApplicationDefaults
+  Organizations:
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+    LifecycleEndorsement:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Endorsement"
+    Endorsement:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Endorsement"
+
+  Capabilities:
+    <<: *ApplicationCapabilities
+
+Orderer: &OrdererDefaults
+  OrdererType: etcdraft
+
+  BatchTimeout: 2s
+
+  BatchSize:
+    MaxMessageCount: 10
+    AbsoluteMaxBytes: 99 MB
+    PreferredMaxBytes: 512 KB
+
+  Addresses:
+  - 192.168.8.120:7009
+  - 192.168.8.120:7010
+  - 192.168.8.120:7011
+  EtcdRaft:
+    Consenters:
+    - Host: 192.168.8.120
+      Port: 7009
+      ClientTLSCert: keyfiles/ordererOrganizations/auto.com/orderers/orderer1.auto.com/tls/server.crt
+      ServerTLSCert: keyfiles/ordererOrganizations/auto.com/orderers/orderer1.auto.com/tls/server.crt
+    - Host: 192.168.8.120
+      Port: 7010
+      ClientTLSCert: keyfiles/ordererOrganizations/auto.com/orderers/orderer2.auto.com/tls/server.crt
+      ServerTLSCert: keyfiles/ordererOrganizations/auto.com/orderers/orderer2.auto.com/tls/server.crt
+    - Host: 192.168.8.120
+      Port: 7011
+      ClientTLSCert: keyfiles/ordererOrganizations/auto.com/orderers/orderer3.auto.com/tls/server.crt
+      ServerTLSCert: keyfiles/ordererOrganizations/auto.com/orderers/orderer3.auto.com/tls/server.crt
+  Organizations:
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+    BlockValidation:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+
+Channel: &ChannelDefaults
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+
+  Capabilities:
+    <<: *ChannelCapabilities
+
+Profiles:
+  OrgChannel:
+    Consortium: SampleConsortium
+    <<: *ChannelDefaults
+    Application:
+      <<: *ApplicationDefaults
+      Organizations:
+      - *citizen-auto-com
+      - *lawyer-auto-com
+      - *police-auto-com
+      Capabilities:
+        <<: *ApplicationCapabilities
+
+  OrdererGenesis:
+    <<: *ChannelDefaults
+    Capabilities:
+      <<: *ChannelCapabilities
+    Orderer:
+      <<: *OrdererDefaults
+      Organizations:
+      - *auto-com
+      Capabilities:
+        <<: *OrdererCapabilities
+    Application:
+      <<: *ApplicationDefaults
+      Organizations:
+      - <<: *auto-com
+    Consortiums:
+      SampleConsortium:
+        Organizations:
+        - *citizen-auto-com
+        - *lawyer-auto-com
+        - *police-auto-com

@@ -1,0 +1,160 @@
+{
+  "name": "fabric-network",
+  "description": "Generated network configuration file",
+  "version": "0.1",
+  "client": {
+    "organization": "citizen.auto.com",
+    "credentialStore": {
+      "path": "/tmp/hfc-kvs",
+      "cryptoStore": {
+        "path": "/tmp/hfc-cvs"
+      },
+      "wallet": "wallet-name"
+    }
+  },
+  "organizations": {
+    "auto.com": {
+      "mspid": "auto-com",
+      "orderers": [
+        "orderer1.auto.com",
+        "orderer2.auto.com",
+        "orderer3.auto.com"
+      ],
+      "users": {
+        "Admin": {
+          "cert": "/keyfiles/ordererOrganizations/auto.com/users/Admin@auto.com/msp/signcerts/Admin@auto.com-cert.pem",
+          "private_key": "/keyfiles/ordererOrganizations/auto.com/users/Admin@auto.com/msp/keystore/priv_sk"
+        }
+      }
+    },
+    "citizen.auto.com": {
+      "mspid": "citizen-auto-com",
+      "peers": [
+        "peer1.citizen.auto.com"
+      ],
+      "users": {
+        "Admin": {
+          "cert": "/keyfiles/peerOrganizations/citizen.auto.com/users/Admin@citizen.auto.com/msp/signcerts/Admin@citizen.auto.com-cert.pem",
+          "private_key": "/keyfiles/peerOrganizations/citizen.auto.com/users/Admin@citizen.auto.com/msp/keystore/priv_sk"
+        }
+      }
+    },
+    "lawyer.auto.com": {
+      "mspid": "lawyer-auto-com",
+      "peers": [
+        "peer1.lawyer.auto.com"
+      ],
+      "users": {
+        "Admin": {
+          "cert": "/keyfiles/peerOrganizations/lawyer.auto.com/users/Admin@lawyer.auto.com/msp/signcerts/Admin@lawyer.auto.com-cert.pem",
+          "private_key": "/keyfiles/peerOrganizations/lawyer.auto.com/users/Admin@lawyer.auto.com/msp/keystore/priv_sk"
+        }
+      }
+    },
+    "police.auto.com": {
+      "mspid": "police-auto-com",
+      "peers": [
+        "peer1.police.auto.com"
+      ],
+      "users": {
+        "Admin": {
+          "cert": "/keyfiles/peerOrganizations/police.auto.com/users/Admin@police.auto.com/msp/signcerts/Admin@police.auto.com-cert.pem",
+          "private_key": "/keyfiles/peerOrganizations/police.auto.com/users/Admin@police.auto.com/msp/keystore/priv_sk"
+        }
+      }
+    }
+  },
+  "orderers": {
+    "orderer1.auto.com": {
+      "url": "192.168.8.120:7009",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "orderer1.auto.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/ordererOrganizations/auto.com/orderers/orderer1.auto.com/tls/ca.crt"
+      }
+    },
+    "orderer2.auto.com": {
+      "url": "192.168.8.120:7010",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "orderer2.auto.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/ordererOrganizations/auto.com/orderers/orderer2.auto.com/tls/ca.crt"
+      }
+    },
+    "orderer3.auto.com": {
+      "url": "192.168.8.120:7011",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "orderer3.auto.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/ordererOrganizations/auto.com/orderers/orderer3.auto.com/tls/ca.crt"
+      }
+    }
+  },
+  "peers": {
+    "peer1.police.auto.com": {
+      "url": "192.168.8.120:7003",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "peer1.police.auto.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/police.auto.com/peers/peer1.police.auto.com/tls/ca.crt"
+      }
+    },
+    "peer1.citizen.auto.com": {
+      "url": "192.168.8.120:7004",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "peer1.citizen.auto.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/citizen.auto.com/peers/peer1.citizen.auto.com/tls/ca.crt"
+      }
+    },
+    "peer1.lawyer.auto.com": {
+      "url": "192.168.8.120:7005",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "peer1.lawyer.auto.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/lawyer.auto.com/peers/peer1.lawyer.auto.com/tls/ca.crt"
+      }
+    }
+  },
+  "certificateAuthorities": {
+    "ca1.police.auto.com": {
+      "url": "https://192.168.8.120:7000",
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/police.auto.com/ca/ca1.police.auto.com-cert.pem"
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca1",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    },
+    "ca1.citizen.auto.com": {
+      "url": "https://192.168.8.120:7001",
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/citizen.auto.com/ca/ca1.citizen.auto.com-cert.pem"
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca1",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    },
+    "ca1.lawyer.auto.com": {
+      "url": "https://192.168.8.120:7002",
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/lawyer.auto.com/ca/ca1.lawyer.auto.com-cert.pem"
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca1",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    }
+  }
+}

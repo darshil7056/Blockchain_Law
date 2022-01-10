@@ -1,0 +1,35 @@
+{
+  "citizen-auto-com": {
+    "AnchorPeers": {
+      "mod_policy": "Admins",
+      "value": {
+        "anchor_peers": [
+           { "host": "192.168.8.120", "port": "7004" }
+        ]
+      },
+      "version": "0"
+    }
+  },
+  "lawyer-auto-com": {
+    "AnchorPeers": {
+      "mod_policy": "Admins",
+      "value": {
+        "anchor_peers": [
+           { "host": "192.168.8.120", "port": "7005" }
+        ]
+      },
+      "version": "0"
+    }
+  },
+  "police-auto-com": {
+    "AnchorPeers": {
+      "mod_policy": "Admins",
+      "value": {
+        "anchor_peers": [
+           { "host": "192.168.8.120", "port": "7003" }
+        ]
+      },
+      "version": "0"
+    }
+  }
+}
