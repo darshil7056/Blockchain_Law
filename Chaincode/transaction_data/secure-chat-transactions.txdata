@@ -1,0 +1,58 @@
+[
+    {
+        "transactionName": "secureChatExists",
+        "transactionLabel": "A test secureChatExists transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "createSecureChat",
+        "transactionLabel": "A test createSecureChat transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {
+            "privateValue": "some value"
+        }
+    },
+    {
+        "transactionName": "readSecureChat",
+        "transactionLabel": "A test readSecureChat transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "updateSecureChat",
+        "transactionLabel": "A test updateSecureChat transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {
+            "privateValue": "some other value"
+        }
+    },
+    {
+        "transactionName": "deleteSecureChat",
+        "transactionLabel": "A test deleteSecureChat transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "verifySecureChat",
+        "transactionLabel": "A test verifySecureChat transaction",
+        "arguments":[
+            "Org1MSP",
+            "001",
+            {
+                "privateValue": "some other value"
+            }
+        ],
+        "transientData": {}
+    }
+]

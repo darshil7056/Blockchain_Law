@@ -1,0 +1,11 @@
+[
+    {
+      "name": "CollectionOrder",
+      "policy": "OR('lawyer-auto-com.member', 'citizen-auto-com.member')",
+      "requiredPeerCount": 1,
+      "maxPeerCount": 3,
+      "blockToLive": 1000000,
+      "memberOnlyRead": true
+    }
+  ]
+  

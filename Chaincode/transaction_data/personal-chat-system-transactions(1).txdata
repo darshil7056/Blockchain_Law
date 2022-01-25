@@ -1,0 +1,58 @@
+[
+    {
+        "transactionName": "personalChatSystemExists",
+        "transactionLabel": "A test personalChatSystemExists transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "createPersonalChatSystem",
+        "transactionLabel": "A test createPersonalChatSystem transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {
+            "privateValue": "some value"
+        }
+    },
+    {
+        "transactionName": "readPersonalChatSystem",
+        "transactionLabel": "A test readPersonalChatSystem transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "updatePersonalChatSystem",
+        "transactionLabel": "A test updatePersonalChatSystem transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {
+            "privateValue": "some other value"
+        }
+    },
+    {
+        "transactionName": "deletePersonalChatSystem",
+        "transactionLabel": "A test deletePersonalChatSystem transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "verifyPersonalChatSystem",
+        "transactionLabel": "A test verifyPersonalChatSystem transaction",
+        "arguments":[
+            "Org1MSP",
+            "001",
+            {
+                "privateValue": "some other value"
+            }
+        ],
+        "transientData": {}
+    }
+]
